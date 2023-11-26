@@ -158,4 +158,7 @@ const newAssign: ReturnType<typeof createNewAssign> = createNewAssign(...args); 
 // - because it returns a Promise << Awaited<...> simulates await:
 // Awaited<...> = the return data type from the returned Promise<return data type> of async fetchuser()
 async function fetchUsers(): Promise<Response> {return fetch("")}
-const users: Awaited<ReturnType<typeof fetchUsers>> = fetchUsers();
+
+const getUsers = async () => {
+    const users: Awaited<ReturnType<typeof fetchUsers>> = await fetchUsers();
+}
